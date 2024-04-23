@@ -1,0 +1,45 @@
+[submodule "bsnes"]
+	path = bsnes
+	url = https://gitlab.com/jgemu/bsnes.git
+[submodule "cega"]
+	path = cega
+	url = https://gitlab.com/jgemu/cega.git
+[submodule "gambatte"]
+	path = gambatte
+	url = https://gitlab.com/jgemu/gambatte.git
+[submodule "geolith"]
+	path = geolith
+	url = https://gitlab.com/jgemu/geolith.git
+[submodule "jg"]
+	path = jg
+	url = https://gitlab.com/jgemu/jg.git
+[submodule "jgrf"]
+	path = jgrf
+	url = https://gitlab.com/jgemu/jgrf.git
+[submodule "jollycv"]
+	path = jollycv
+	url = https://gitlab.com/jgemu/jollycv.git
+[submodule "mednafen"]
+	path = mednafen
+	url = https://gitlab.com/jgemu/mednafen.git
+[submodule "melonds"]
+	path = melonds
+	url = https://gitlab.com/jgemu/melonds.git
+[submodule "mgba"]
+	path = mgba
+	url = https://gitlab.com/jgemu/mgba.git
+[submodule "nestopia"]
+	path = nestopia
+	url = https://gitlab.com/jgemu/nestopia.git
+[submodule "picodrive"]
+	path = picodrive
+	url = https://gitlab.com/jgemu/picodrive.git
+[submodule "prosystem"]
+	path = prosystem
+	url = https://gitlab.com/jgemu/prosystem.git
+[submodule "sameboy"]
+	path = sameboy
+	url = https://gitlab.com/jgemu/sameboy.git
+[submodule "vecx"]
+	path = vecx
+	url = https://gitlab.com/jgemu/vecx.git
