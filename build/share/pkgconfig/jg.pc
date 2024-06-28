@@ -1,0 +1,8 @@
+prefix=../build
+includedir=${prefix}/include
+
+Name: Jolly Good API
+Description: An API for Emulators
+Version: 1.0.0
+URL: https://jgemu.gitlab.io
+Cflags: -I${includedir}

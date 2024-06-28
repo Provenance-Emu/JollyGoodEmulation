@@ -1,0 +1,33 @@
+The Jolly Good API
+------------------
+The Jolly Good API is a shared object or "plugin" API for emulators.
+
+Example code may be found in "example.c"
+
+This repository lives at https://gitlab.com/jgemu/jg
+
+Installation
+------------
+Options:
+  PREFIX - Override default installation prefix
+  DATAROOTDIR - Override default data root directory
+  DOCDIR - Override default documentation directory
+  INCLUDEDIR - Override default include directory
+
+Linux:
+  make install
+
+macOS:
+  make install
+
+BSD:
+  gmake install
+
+Windows (MSYS2):
+  make install
+
+Copyright
+---------
+The Jolly Good API (Zlib)
+  Copyright (c) 2020-2022, Rupert Carmichael
+  See LICENSE
