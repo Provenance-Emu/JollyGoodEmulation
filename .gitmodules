@@ -43,3 +43,6 @@
 [submodule "vecx"]
 	path = vecx
 	url = https://gitlab.com/jgemu/vecx.git
+[submodule "genplus"]
+	path = genplus
+	url = https://gitlab.com/jgemu/genplus.git
