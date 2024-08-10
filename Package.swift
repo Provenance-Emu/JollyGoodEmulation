@@ -1,16 +1,20 @@
-// swift-tools-version:5.10
+// swift-tools-version:6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
+let localPath: String = "../../"
+//let localPath: String = "../Provenance/"
+
 let package = Package(
     name: "JollyGoodEMUCore",
     platforms: [
-        .iOS(.v13),
-        .tvOS(.v13),
+        .iOS(.v17),
+        .tvOS("15.4"),
         .watchOS(.v9),
         .macOS(.v11),
-        .macCatalyst(.v14)
+        .macCatalyst(.v14),
+        .visionOS(.v1)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -19,12 +23,13 @@ let package = Package(
             targets: ["jg"]),
     ],
     dependencies: [
-        .package(path: "../Provenance/PVCoreBridge"),
-        .package(path: "../Provenance/PVEmulatorCore"),
-        .package(path: "../Provenance/PVSupport"),
-        .package(path: "../Provenance/PVAudio"),
-        .package(path: "../Provenance/PVLogging"),
-        .package(path: "../Provenance/PVObjCUtils")
+        .package(path: "\(localPath)/PVCoreBridge"),
+        .package(path: "\(localPath)/PVEmulatorCore"),
+        .package(path: "\(localPath)/PVSupport"),
+        .package(path: "\(localPath)/PVAudio"),
+        .package(path: "\(localPath)/PVLogging"),
+        .package(path: "\(localPath)/PVObjCUtils"),
+        .package(path: "\(localPath)/PVPlists")
     ],
     targets: [
 
@@ -58,10 +63,10 @@ let package = Package(
             dependencies: [
                 "PVEmulatorCore",
                 "PVCoreBridge",
-                "PVSupport"
+                "PVSupport",
+                "PVPlists",
             ],
-            path: "jg",
-            publicHeadersPath: "jg"
+            path: "jg"
         ),
 
         .target(
@@ -72,19 +77,21 @@ let package = Package(
                 "PVCoreBridge",
                 "PVSupport"
             ],
-            path: "bsnes"
+            path: "bsnes/src",
+            publicHeadersPath: "./"
         ),
 
-        .target(
-            name: "cega",
-            dependencies: [
-                "jg",
-                "PVEmulatorCore",
-                "PVCoreBridge",
-                "PVSupport"
-            ],
-            path: "cega"
-        ),
+//        .target(
+//            name: "cega",
+//            dependencies: [
+//                "jg",
+//                "PVEmulatorCore",
+//                "PVCoreBridge",
+//                "PVSupport"
+//            ],
+//            path: "cega/src",
+//            publicHeadersPath: "./"
+//        ),
 
         .target(
             name: "gambatte",
@@ -94,7 +101,8 @@ let package = Package(
                 "PVCoreBridge",
                 "PVSupport"
             ],
-            path: "gambatte"
+            path: "gambatte/src",
+            publicHeadersPath: "./"
         ),
 
 //        .target(
@@ -116,7 +124,8 @@ let package = Package(
                 "PVCoreBridge",
                 "PVSupport"
             ],
-            path: "geolith"
+            path: "geolith/src",
+            publicHeadersPath: "./"
         ),
 
 //        .target(
@@ -130,16 +139,17 @@ let package = Package(
 //            path: "highnes"
 //        ),
 
-        .target(
-            name: "jgrf",
-            dependencies: [
-                "jg",
-                "PVEmulatorCore",
-                "PVCoreBridge",
-                "PVSupport"
-            ],
-            path: "jgrf"
-        ),
+//        .target(
+//            name: "jgrf",
+//            dependencies: [
+//                "jg",
+//                "PVEmulatorCore",
+//                "PVCoreBridge",
+//                "PVSupport"
+//            ],
+//            path: "jgrf/src",
+//            publicHeadersPath: "./"
+//        ),
 
         .target(
             name: "jollycv",
@@ -149,63 +159,70 @@ let package = Package(
                 "PVCoreBridge",
                 "PVSupport"
             ],
-            path: "jollycv"
+            path: "jollycv/src",
+            publicHeadersPath: "./"
         ),
 
-        .target(
-            name: "mednafen",
-            dependencies: [
-                "jg",
-                "PVEmulatorCore",
-                "PVCoreBridge",
-                "PVSupport"
-            ],
-            path: "mednafen"
-        ),
+//        .target(
+//            name: "mednafen",
+//            dependencies: [
+//                "jg",
+//                "PVEmulatorCore",
+//                "PVCoreBridge",
+//                "PVSupport"
+//            ],
+//            path: "mednafen/src",
+//            publicHeadersPath: "./"
+//
+//        ),
 
-        .target(
-            name: "melonds",
-            dependencies: [
-                "jg",
-                "PVEmulatorCore",
-                "PVCoreBridge",
-                "PVSupport"
-            ],
-            path: "melonds"
-        ),
+//        .target(
+//            name: "melonds",
+//            dependencies: [
+//                "jg",
+//                "PVEmulatorCore",
+//                "PVCoreBridge",
+//                "PVSupport"
+//            ],
+//            path: "melonds/src",
+//            publicHeadersPath: "./"
+//        ),
 
-        .target(
-            name: "mgba",
-            dependencies: [
-                "jg",
-                "PVEmulatorCore",
-                "PVCoreBridge",
-                "PVSupport"
-            ],
-            path: "mgba"
-        ),
+//        .target(
+//            name: "mgba",
+//            dependencies: [
+//                "jg",
+//                "PVEmulatorCore",
+//                "PVCoreBridge",
+//                "PVSupport"
+//            ],
+//            path: "mgba/src",
+//            publicHeadersPath: "./"
+//        ),
 
-        .target(
-            name: "nestopia",
-            dependencies: [
-                "jg",
-                "PVEmulatorCore",
-                "PVCoreBridge",
-                "PVSupport"
-            ],
-            path: "nestopia"
-        ),
+//        .target(
+//            name: "nestopia",
+//            dependencies: [
+//                "jg",
+//                "PVEmulatorCore",
+//                "PVCoreBridge",
+//                "PVSupport"
+//            ],
+//            path: "nestopia/src",
+//            publicHeadersPath: "./"
+//        ),
 
-        .target(
-            name: "picodrive",
-            dependencies: [
-                "jg",
-                "PVEmulatorCore",
-                "PVCoreBridge",
-                "PVSupport"
-            ],
-            path: "picodrive"
-        ),
+//        .target(
+//            name: "picodrive",
+//            dependencies: [
+//                "jg",
+//                "PVEmulatorCore",
+//                "PVCoreBridge",
+//                "PVSupport"
+//            ],
+//            path: "picodrive/src",
+//            publicHeadersPath: "./"
+//        ),
 
         .target(
             name: "prosystem",
@@ -215,29 +232,46 @@ let package = Package(
                 "PVCoreBridge",
                 "PVSupport"
             ],
-            path: "prosystem"
+            path: "prosystem/src",
+            publicHeadersPath: "./"
         ),
 
-        .target(
-            name: "sameboy",
-            dependencies: [
-                "jg",
-                "PVEmulatorCore",
-                "PVCoreBridge",
-                "PVSupport"
-            ],
-            path: "sameboy"
-        ),
+        // MARK: SameBoy
+//        .target(
+//            name: "sameboy",
+//            dependencies: [
+//                "jg",
+//                "PVEmulatorCore",
+//                "PVCoreBridge",
+//                "PVSupport"
+//            ],
+//            path: "sameboy"
+//        ),
 
+        // MARK: VECX
         .target(
             name: "vecx",
             dependencies: [
                 "jg",
                 "PVEmulatorCore",
                 "PVCoreBridge",
+                "PVSupport",
+                "speex"
+            ],
+            path: "vecx/src",
+            publicHeadersPath: "./"
+        ),
+
+        .target(
+            name: "speex",
+            dependencies: [
+                "jg",
+                "PVEmulatorCore",
+                "PVCoreBridge",
                 "PVSupport"
             ],
-            path: "vecx"
+            path: "vecx/deps/speex",
+            publicHeadersPath: "./"
         )
 //
 //        .target(
@@ -316,8 +350,8 @@ let package = Package(
 ////                .define("__STDC_LIMIT_MACROS"),
 //                .define("ICONV_CONST="),
 //                .define("LSB_FIRST"),
-//                
-//                
+//
+//
 ////                .unsafeFlags([
 ////                    "-DHAVE_UNISTD_H",
 ////                    "-DMEDNAFEN_VERSION=\"1.26.1\"",
@@ -725,7 +759,7 @@ let package = Package(
 //                .headerSearchPath("mednafen/hw_video"),
 ////                .headerSearchPath("mednafen/trio"),
 //                .headerSearchPath("libsndfile"),
-//                
+//
 //                .define("MEDNAFEN_VERSION", to: "\"1.26.1\""),
 //                .define("PACKAGE", to: "\"mednafen\""),
 //                .define("MEDNAFEN_VERSION_NUMERIC", to: "0x00102601"),
@@ -792,8 +826,8 @@ let package = Package(
 ////                    "-D__LIBRETRO__",
 ////                    "-DINLINE=\"inline\"",
 ////                ]),
-//                
-//                
+//
+//
 //            ],
 //            linkerSettings: [
 //                .linkedLibrary("iconv")
