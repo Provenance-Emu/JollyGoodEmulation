@@ -24,6 +24,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "\(localPath)/PVCoreBridge"),
+        .package(path: "\(localPath)/PVCoreObjCBridge"),
         .package(path: "\(localPath)/PVEmulatorCore"),
         .package(path: "\(localPath)/PVSupport"),
         .package(path: "\(localPath)/PVAudio"),
@@ -837,7 +838,7 @@ let package = Package(
 //        .binaryTarget(name: "libvorbis", path: "artifacts/libvorbis.xcframework"),
 //        .binaryTarget(name: "libvorbisenc", path: "artifacts/libvorbisenc.xcframework"),
     ],
-    swiftLanguageVersions: [.v5],
+    swiftLanguageModes: [.v5],
     cLanguageStandard: .gnu11,
     cxxLanguageStandard: .gnucxx14
 )
